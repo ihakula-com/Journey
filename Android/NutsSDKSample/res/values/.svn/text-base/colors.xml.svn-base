@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<drawable name="drawable_test_blue">#00f</drawable>
+	<drawable name="drawable_res_list_divider">#A0A0A0</drawable>
+	<color name="color_background">#cbcfcf</color>
+	<color name="color_orange">#FF890B</color>	
+	<color name="color_shallow_orange">#ffbe49</color>
+	<color name="color_download">#c6c6c6</color>		
+	<color name="color_bak_shallow_orange">#ffcf71</color>	
+	<color name="color_white">#ffffff</color>
+	<color name="color_black">#000000</color>
+	<color name="color_red">#ff0000</color>
+	<color name="color_blue">#2D72A7</color>
+	<color name="color_light_blue">#0066aa</color>	
+	<color name="color_gray">#513734</color>
+	<color name="color_light_grey">#4b3934</color>	
+	<color name="color_grey">#979292</color>		
+	<color name="color_deepskyblue">#00bfff</color>
+	<color name="color_darkcyan">#00ced1</color>
+	<color name="color_darkblue">#b0c4d1</color>
+	<color name="color_saffron">#EE9A49</color>
+	<drawable name="drawable_room_type_normal">#fff</drawable>
+	<drawable name="drawable_room_type_pressed">#F1D71D</drawable>
+	<color name="color_redblack">#c86813</color>
+	<color name="drawable_transparent_button">#00000000</color>
+	<color name="color_yellow">#fffc00</color>
+	<color name="gray">#bababa</color>
+	<color name="color_en">#00882d</color>
+	<color name="transparent_background">#50000000</color> 
+	<color name = "title_bar_text_shadowColor">#C9C8C7</color>
+	<color name = "title_bar_text_color">#000000</color>
+	<color name="color_transparent">#99000000</color>
+	<color name="transparent">#01000000</color>
+	<color name="transparent_background_all">#00000000</color>
+	<color name="transparent_90">#90000000</color> 
+    <color name="color_text_title">#717171</color>			
+
+    <color name="color_reader_bk">#F2F2F2</color>	
+    <color name="color_listview_select">#66C1DC</color>	
+    <color name="color_text_blue">#0066ca</color>  
+    <color name="color_text_gray">#666666</color>
+    <color name="color_text_reader_bottom">#656565</color>
+    
+	<color name="md__transparent">#00000000</color>
+    <color name="md__defaultBackground">#FF555555</color>  	   
+</resources>
