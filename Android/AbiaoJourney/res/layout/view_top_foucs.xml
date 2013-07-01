@@ -11,6 +11,7 @@
         <com.ihakula.journey.view.NutsViewPager
             android:id="@+id/view_pager"
             android:layout_width="fill_parent"
+            android:background="@color/color_blue"
             android:layout_height="160dip" />
 
         <LinearLayout
@@ -59,6 +60,7 @@
         android:layout_height="@dimen/top_linear_height"
         android:background="@drawable/qh_bg"
         android:gravity="center"
+        android:visibility="gone"
         android:orientation="horizontal" >
 
         <ImageView

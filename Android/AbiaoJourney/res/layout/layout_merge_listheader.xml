@@ -9,6 +9,7 @@
     	android:orientation="horizontal"	 
     	android:background="@drawable/qh_bg"   
     	android:gravity="center"
+    	android:visibility="gone"
 	    >
 		<ImageView
 		    android:id="@+id/rt_img" 
