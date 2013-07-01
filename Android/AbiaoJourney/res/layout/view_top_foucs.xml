@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical" >
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" >
+
+        <com.ihakula.journey.view.NutsViewPager
+            android:id="@+id/view_pager"
+            android:layout_width="fill_parent"
+            android:layout_height="160dip" />
+
+        <LinearLayout
+            android:id="@+id/vp_linear"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginBottom="5dip"
+            android:gravity="center_horizontal" >
+
+            <RelativeLayout
+                android:id="@+id/pb_linear"
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_gravity="center" >
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal" >
+
+                    <ProgressBar
+                        android:id="@+id/install_pb"
+                        android:layout_width="25dip"
+                        android:layout_height="25dip"
+                        android:indeterminate="false"
+                        android:indeterminateDrawable="@drawable/pb"
+                        android:visibility="visible" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="25dip"
+                        android:layout_marginLeft="2dip"
+                        android:gravity="center_vertical"
+                        android:text="正在载入..."
+                        android:textColor="@color/color_orange"
+                        android:textStyle="bold" />
+                </LinearLayout>
+            </RelativeLayout>
+        </LinearLayout>
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/top_linear_height"
+        android:background="@drawable/qh_bg"
+        android:gravity="center"
+        android:orientation="horizontal" >
+
+        <ImageView
+            android:id="@+id/yx_img"
+            android:layout_width="@dimen/top_image_width"
+            android:layout_height="@dimen/top_image_height"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/yx_selector" />
+
+        <ImageView
+            android:id="@+id/xs_img"
+            android:layout_width="@dimen/top_image_width"
+            android:layout_height="@dimen/top_image_height"
+            android:layout_gravity="center_vertical"
+            android:src="@drawable/xs_selector" />
+    </LinearLayout>
+
+</LinearLayout>
