@@ -8,9 +8,12 @@
 
 #import "iHMoreViewController.h"
 #import "JMoreCell.h"
+#import "JPTViewController.h"
+#import "JAboutUsViewController.h"
 
 @interface iHMoreViewController ()
-
+- (void)gotoPrivacyAndTerms;
+- (void)gotoAboutUsAndTerms;
 @end
 
 @implementation iHMoreViewController
@@ -49,6 +52,8 @@
 #pragma mark - UITableView delegate & datasource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    [self gotoAboutUsAndTerms];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -75,4 +80,14 @@
     return cell;
 }
 
+#pragma mark - Private Methods
+- (void)gotoPrivacyAndTerms {
+    JPTViewController *vc = [[JPTViewController alloc] initWithNibName:@"JPTViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)gotoAboutUsAndTerms {
+    JAboutUsViewController *vc = [[JAboutUsViewController alloc] initWithNibName:@"JAboutUsViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
 @end

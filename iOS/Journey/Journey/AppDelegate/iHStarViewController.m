@@ -50,11 +50,15 @@
 #pragma mark - Private Methods
 - (void)drawSlideImages {
     NSMutableArray *imageUrls = [NSMutableArray arrayWithObjects:
-                                 @"http://i0.sinaimg.cn/qc/572/2011/0406/U7055P33T572D4F24198DT20120326100856.jpg",
-                                 @"http://i2.sinaimg.cn/qc/572/2011/0406/U7055P33T572D4F24202DT20120326100856.jpg",
-                                 @"http://i1.sinaimg.cn/qc/572/2011/0406/U7055P33T572D4F24206DT20120326103335.jpg",
-                                 @"http://i2.sinaimg.cn/qc/572/2011/0406/U7055P33T572D4F24210DT20120326181928.jpg",
-                                 @"http://i3.sinaimg.cn/qc/572/2011/0406/U7055P33T572D4F24214DT20120326180737.jpg",
+                                 @"1.png",
+                                 @"2.png",
+                                 @"3.png",
+                                 @"4.png",
+                                 @"5.png",
+                                 @"6.png",
+                                 @"7.png",
+                                 @"8.png",
+                                 @"9.png",
                                  nil];
     _slideImageView = [[iHImageSlideView alloc] initWithFrame:CGRectMake(0, 0, 320, 100)];
     _slideImageView.delegate = self;
