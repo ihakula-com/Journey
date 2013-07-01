@@ -1,38 +1,35 @@
 //
-//  iHSecondViewController.m
+//  JStarChoiceViewController.m
 //  Journey
 //
-//  Created by Wayde Sun on 6/27/13.
+//  Created by Wayde Sun on 7/1/13.
 //  Copyright (c) 2013 iHakula. All rights reserved.
 //
 
-#import "iHMoreViewController.h"
-#import "JMoreCell.h"
+#import "JStarChoiceViewController.h"
+#import "JStarChoiceCell.h"
+#import "JStarChoiceModel.h"
 
-@interface iHMoreViewController ()
+@interface JStarChoiceViewController ()
 
 @end
 
-@implementation iHMoreViewController
+@implementation JStarChoiceViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        self.title = NSLocalizedString(@"gengduo", @"gengduo");
-        self.tabBarItem.image = [UIImage imageNamed:@"second"];
-        
-        NSString *dataPath = [[NSBundle mainBundle] pathForResource:@"More" ofType:@"plist"];
-        NSDictionary *dataDic = [NSDictionary dictionaryWithContentsOfFile:dataPath];
-        _moreList = [dataDic objectForKey:@"data"];
+        self.title = NSLocalizedString(@"JinPinSetMeal", @"JinPinSetMeal");
+        _dm = [[JStarChoiceModel alloc] init];
     }
     return self;
 }
-							
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	// Do any additional setup after loading the view, typically from a nib.
+    [self setupRightCallItem];
 }
 
 - (void)didReceiveMemoryWarning
@@ -48,6 +45,9 @@
 
 #pragma mark - UITableView delegate & datasource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    JStarChoiceViewController *vc = [[JStarChoiceViewController alloc] initWithNibName:@"JStarChoiceViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
@@ -56,21 +56,18 @@
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return [_moreList count];
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"SightSpotHomeCell";
+    static NSString *CellIdentifier = @"StarChoiceHomeCell";
     UITableViewCell *cell = nil;
     
     cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
     if (cell == nil) {
-        cell = [[JMoreCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        cell = [[JStarChoiceCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
         [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
     }
-    
-    NSDictionary *service = [_moreList objectAtIndex:indexPath.row];
-    [(JMoreCell *)cell setValues:service];
     
     return cell;
 }

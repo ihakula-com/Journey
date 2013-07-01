@@ -6,5 +6,24 @@
   Copyright (c) 2013 iHakula. All rights reserved.
 */
 
+/* System */
+
+"callme" = "呼叫阿标";
+"callmetitle" = "阿标旅游客服竭诚为您服务";
+"abiao" = "阿标为您服务";
+"ahui" = "阿慧为您服务";
+"cancel" = "取消";
+"ok" = "确定";
+
+/* Alert View */
+
+"WarmServiceTitle" = "温馨提示";
+"ABiaoService" = "打给阿标：15611762054";
+"ABiaoPhoneNum" = "15611762054";
+"AHuiService" = "打给阿慧：15611762054";
+"AHuiPhoneNum" = "15611762054";
+
+/* View Controller */
 "jingpin" = "精选";
+"JinPinSetMeal" = "精品套餐";
 "gengduo" = "More";

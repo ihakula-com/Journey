@@ -7,11 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JUser.h"
 
-@interface iHAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate>
+@interface iHAppDelegate : UIResponder <UIApplicationDelegate, UITabBarControllerDelegate, CLLocationManagerDelegate> {
+    CLLocationManager *_locateManager;
+}
 
 @property (strong, nonatomic) UIWindow *window;
-
 @property (strong, nonatomic) UITabBarController *tabBarController;
+
+@property (strong, nonatomic) JUser *user;
+
++ (iHAppDelegate *)getSharedAppDelegate;
 
 @end

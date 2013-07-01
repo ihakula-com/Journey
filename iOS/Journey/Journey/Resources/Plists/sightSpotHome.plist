@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>data</key>
+	<array>
+		<dict>
+			<key>title</key>
+			<string>昆大丽</string>
+			<key>description</key>
+			<string>昆明，大理，丽江组合游</string>
+			<key>image</key>
+			<string>homeCombine1.jpg</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>昆大丽版</string>
+			<key>description</key>
+			<string>昆明，大理，丽江，西双版纳组合游</string>
+			<key>image</key>
+			<string>homeCombine2.png</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>昆大丽中泸</string>
+			<key>description</key>
+			<string>昆明，大理，丽江，香格里拉（中甸），泸沽湖组合游</string>
+			<key>image</key>
+			<string>homeCombine3.png</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>昆大丽中泸版</string>
+			<key>description</key>
+			<string>昆明，大理，丽江，香格里拉（中甸），泸沽湖，西双版纳组合游</string>
+			<key>image</key>
+			<string>homeCombine4.png</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>自助游服务</string>
+			<key>description</key>
+			<string>酒店预定，交通服务</string>
+			<key>image</key>
+			<string>homeCombine5.png</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>交通服务</string>
+			<key>description</key>
+			<string>接机，票务预定</string>
+			<key>image</key>
+			<string>homeCombine6.png</string>
+		</dict>
+		<dict>
+			<key>title</key>
+			<string>住宿服务</string>
+			<key>description</key>
+			<string>酒店预定</string>
+			<key>image</key>
+			<string>homeCombine7.png</string>
+		</dict>
+	</array>
+</dict>
+</plist>

@@ -17,7 +17,8 @@
 #import "iHMoreViewController.h"
 
 @interface iHAppDelegate ()
-
+- (void)locateMe;
+- (void)stopUpdatingLocation:(NSString *)state;
 @end
 
 @implementation iHAppDelegate
@@ -29,17 +30,20 @@
     if (![iHEngine start]) {
         return NO;
     }
+    self.user = [[JUser alloc] init];
     
     UIViewController *viewController1 = [[iHStarViewController alloc] initWithNibName:@"iHStarViewController" bundle:nil];
     UIViewController *viewController2 = [[iHMoreViewController alloc] initWithNibName:@"iHMoreViewController" bundle:nil];
   
-      UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
-      UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
+    UINavigationController *nav1 = [[UINavigationController alloc] initWithRootViewController:viewController1];
+    UINavigationController *nav2 = [[UINavigationController alloc] initWithRootViewController:viewController2];
       
-      self.tabBarController = [[UITabBarController alloc] init];
-      self.tabBarController.viewControllers = @[nav1, nav2];
-      self.window.rootViewController = self.tabBarController;
+    self.tabBarController = [[UITabBarController alloc] init];
+    self.tabBarController.viewControllers = @[nav1, nav2];
+    self.window.rootViewController = self.tabBarController;
     [self.window makeKeyAndVisible];
+    
+    [self locateMe];
     return YES;
 }
 
@@ -83,5 +87,36 @@
 {
 }
 */
+
+#pragma mark - Private Methods
+- (void)locateMe {
+    _locateManager = [[CLLocationManager alloc] init];
+    _locateManager.delegate  = self;
+    _locateManager.desiredAccuracy = kCLLocationAccuracyKilometer;
+    [_locateManager startUpdatingLocation];
+    [self performSelector:@selector(stopUpdatingLocation:) withObject:@"Timed Out" afterDelay:5.0];
+}
+
+- (void)stopUpdatingLocation:(NSString *)state {
+    [_locateManager stopUpdatingLocation];
+    _locateManager.delegate = nil;
+}
+
+#pragma mark - CLLocationManagerDelegate
+- (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
+    self.user.myLocation = newLocation;
+}
+
+- (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {
+    if ([error code] != kCLErrorLocationUnknown) {
+        [self stopUpdatingLocation:NSLocalizedString(@"Error", @"Error")];
+    }
+}
+
+
+#pragma mark - Class Methods
++ (iHAppDelegate *)getSharedAppDelegate {
+    return (iHAppDelegate *)[[UIApplication sharedApplication] delegate];
+}
 
 @end

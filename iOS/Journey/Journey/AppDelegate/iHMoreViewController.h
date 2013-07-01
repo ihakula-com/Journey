@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
-@interface iHMoreViewController : UIViewController
+@interface iHMoreViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+    NSArray *_moreList;
+}
+
+
+@property (weak, nonatomic) IBOutlet UITableView *theTableView;
 
 @end

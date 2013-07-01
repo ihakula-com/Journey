@@ -7,14 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "JBaseViewController.h"
 #import "iHImageSlideView.h"
 
-@class iHPageView;
-@interface iHStarViewController : UIViewController <ImageSliderViewDelegate> {
+@class iHPageView, iHStarModel;
+@interface iHStarViewController : JBaseViewController <ImageSliderViewDelegate, UITableViewDataSource, UITableViewDelegate> {
     iHImageSlideView *_slideImageView;
     iHPageView *_pageView;
+    
+    iHStarModel *_dm;
 }
 
-@end
+@property (weak, nonatomic) IBOutlet UILabel *sightSpotLabel;
+@property (weak, nonatomic) IBOutlet UITableView *theTableView;
 
-// [[NSUserDefaults standardUserDefaults] objectForKey:@"SBFormattedPhoneNumber"];
+
+@end

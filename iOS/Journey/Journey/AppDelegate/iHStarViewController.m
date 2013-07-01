@@ -8,6 +8,9 @@
 
 #import "iHStarViewController.h"
 #import "iHPageView.h"
+#import "JHomeCell.h"
+#import "iHStarModel.h"
+#import "JStarChoiceViewController.h"
 
 @interface iHStarViewController ()
 - (void)drawSlideImages;
@@ -19,8 +22,9 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-    self.title = NSLocalizedString(@"jingpin", @"jingpin");
-    self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        self.title = NSLocalizedString(@"jingpin", @"jingpin");
+        self.tabBarItem.image = [UIImage imageNamed:@"first"];
+        _dm = [[iHStarModel alloc] init];
     }
     return self;
 }
@@ -28,7 +32,13 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setupRightCallItem];
 	[self drawSlideImages];
+    [self performSelector:@selector(test) withObject:nil afterDelay:5.0];
+}
+
+- (void)test {
+    [appDelegate.user getAddress];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,6 +76,44 @@
 
 - (void)imageDidEndDeceleratingWithIndex:(int)imageIndex{
     [_pageView setCurrentPage:imageIndex];
+}
+
+- (void)viewDidUnload {
+    [self setTheTableView:nil];
+    [self setSightSpotLabel:nil];
+    [super viewDidUnload];
+}
+
+#pragma mark - UITableView delegate & datasource
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    JStarChoiceViewController *vc = [[JStarChoiceViewController alloc] initWithNibName:@"JStarChoiceViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+    
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 52;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [_dm.servicesArr count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    static NSString *CellIdentifier = @"SightSpotHomeCell";
+    UITableViewCell *cell = nil;
+    
+    cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[JHomeCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier];
+        [cell setAccessoryType:UITableViewCellAccessoryDisclosureIndicator];
+    }
+    
+    NSDictionary *service = [_dm.servicesArr objectAtIndex:indexPath.row];
+    [(JHomeCell *)cell setValues:service];
+        
+    return cell;
 }
 
 @end
