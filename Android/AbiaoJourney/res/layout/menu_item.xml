@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginLeft="10dip"
+    android:layout_marginRight="10dip"
+    android:orientation="vertical" >
+
+    <LinearLayout 
+    	android:id="@+id/bg_linear"        
+		android:layout_width="wrap_content"
+    	android:layout_height="wrap_content"
+    	android:background="@drawable/menu_item_selector"       
+    	android:layout_marginTop="5dip"
+        >
+    	<ImageView 
+    	    android:id="@+id/select_item"
+    		android:layout_width="20dip"
+    		android:layout_height="20dip"       
+    		android:src="@drawable/gou_point" 
+    		android:scaleType="centerInside"
+			android:layout_gravity="center_vertical"
+    		android:layout_marginLeft="10dip"
+        	/>
+ 
+    	<TextView
+    	    android:id="@+id/condition_text" 
+    		android:layout_width="wrap_content"
+    		android:layout_height="wrap_content"   
+    		android:textColor="@color/color_white"     
+    		android:text="@string/action_settings"   
+			android:layout_gravity="center_vertical|right"		
+			android:layout_marginRight="5dip"
+			android:layout_marginLeft="10dip"
+			android:textSize="16sp"
+        />
+	</LinearLayout>
+	<ImageView
+	    android:id="@+id/menu_bottom_line" 
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:src="@drawable/menu_line"	    
+	    />	
+</LinearLayout>

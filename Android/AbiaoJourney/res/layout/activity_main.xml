@@ -1,0 +1,109 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent" >
+	
+    <RelativeLayout 
+        android:id="@+id/top_nav_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/nav_default_height"     
+        android:background="@drawable/top_bg"   
+        >        
+        <include layout="@layout/layout_merge_top"/>
+    </RelativeLayout>
+    
+     <RelativeLayout
+        android:id="@+id/rl_content"
+        android:layout_below="@id/top_nav_bar"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="-1dip"
+		>
+
+        <TextView
+            android:id="@+id/tv_contentline"
+            android:layout_width="fill_parent"
+            android:layout_height="0dip"
+            android:layout_alignParentTop="true" />
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/vPager"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:layout_below="@id/tv_contentline"
+            android:layout_gravity="center"
+            android:background="#ffffff"
+            android:flipInterval="30"
+            android:persistentDrawingCache="animation" />
+        
+        <RelativeLayout
+            android:id="@+id/ll_tab"
+            android:layout_width="fill_parent"
+            android:layout_height="@dimen/title_bar_height"
+            android:layout_alignParentBottom="true"
+            android:background="#F2F2F2"
+            
+            android:orientation="horizontal" >
+
+            <com.ihakula.journey.view.SyncHorizontalScrollView
+                android:id="@+id/mhsv"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="#5AB0EB"
+                android:fadingEdge="none"
+                android:scrollbars="none" >
+
+                <RelativeLayout
+                    android:id="@+id/rl_scroll"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="bottom"
+                   >
+
+                    <RadioGroup
+                        android:id="@+id/tab_content"
+                        android:layout_width="fill_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentTop="true"
+                        android:background="#F2F2F2"
+                        android:orientation="horizontal" >
+                    </RadioGroup>
+
+                    <ImageView
+                        android:id="@+id/cursor"
+                        android:layout_width="1dip"
+                        android:layout_height="5dip"
+                        android:layout_alignParentBottom="true"    
+                        android:layout_marginLeft="1dip"    
+                        android:visibility="visible"                                        
+                        android:background="@drawable/mune_line"
+                        android:scaleType="matrix" />
+                </RelativeLayout>
+            </com.ihakula.journey.view.SyncHorizontalScrollView>
+
+            <ImageView
+                android:id="@+id/main_iv_left"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="1dip"
+                android:src="@drawable/main_scroll_left"
+                android:visibility="gone" >
+            </ImageView>
+
+            <ImageView
+                android:id="@+id/main_iv_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:paddingBottom="1dip"
+                android:src="@drawable/main_scroll_right"
+                android:visibility="visible" >
+            </ImageView>
+        </RelativeLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="title_bar_height">60dip</dimen>
+    <dimen name="title_bar_default_text_size">24sp</dimen>    
+    
+    <dimen name="nav_default_height">68dip</dimen>      
+    <dimen name="scroll_nav_height">86dip</dimen>            
+    <dimen name="nav_icon_default_height">44dip</dimen>            
+ 
+    <dimen name="rehome_margin_left">-28dip</dimen>   
+        
+    <dimen name="rec_item_appname_size">15dip</dimen>       
+    <dimen name="rec_item_right_size">14dip</dimen>   
+
+    <dimen name="group_item_appname_height">16dip</dimen>       
+    <dimen name="group_item_right_height">13dip</dimen>   
+    <dimen name="update_item_right_height">14dip</dimen> 
+            
+    <dimen name="user_msg_lab">80dip</dimen>
+    <dimen name="user_msg_size">12sp</dimen>
+	<dimen name="change_user_info_input">200dip</dimen>
+	
+	<dimen name="recommend_linear_height">35dip</dimen>
+	<dimen name="recommend_item_height">20sp</dimen>	
+	
+	<dimen name="top_linear_height">70dip</dimen>	
+	<dimen name="top_image_width">130dip</dimen>	
+	<dimen name="top_image_height">60dip</dimen>	
+			    
+</resources>
