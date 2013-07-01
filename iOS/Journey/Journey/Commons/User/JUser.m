@@ -26,12 +26,10 @@
 #pragma mark - Public Methods
 - (NSString *)getAddress {
     CLGeocoder *geocoder = [[CLGeocoder alloc] init];
-    iHDINFO(@"%@", _myLocation);
     [geocoder reverseGeocodeLocation:self.myLocation
      completionHandler:^(NSArray *placemarks, NSError *error) {
          if (error == nil && [placemarks count] > 0){
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             
              NSLog(@"Country = %@", placemark.country);
              NSLog(@"Postal Code = %@", placemark.postalCode);
              NSLog(@"Locality = %@", placemark.locality);
