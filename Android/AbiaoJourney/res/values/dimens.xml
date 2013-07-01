@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="title_bar_height">60dip</dimen>
-    <dimen name="title_bar_default_text_size">24sp</dimen>    
+    <dimen name="title_bar_default_text_size">20sp</dimen>    
     
-    <dimen name="nav_default_height">68dip</dimen>      
+    <dimen name="nav_default_height">58dip</dimen>      
     <dimen name="scroll_nav_height">86dip</dimen>            
     <dimen name="nav_icon_default_height">44dip</dimen>            
  

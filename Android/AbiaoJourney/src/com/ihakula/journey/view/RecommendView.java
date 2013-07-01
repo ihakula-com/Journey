@@ -13,7 +13,7 @@ import android.widget.Toast;
 
 import com.ihakula.journey.R;
 import com.ihakula.journey.adapter.RecItemAdapter;
-import com.ihakula.journey.entity.AppBaseDetail;
+import com.ihakula.journey.entity.LandscapeDetail;
 import com.ihakula.journey.entity.ImageBean;
 import com.ihakula.journey.network.NutsPlayAsyncTask;
 import com.ihakula.journey.network.NutsPlayLib;
@@ -50,6 +50,7 @@ public class RecommendView extends LinearLayout{
 		this.activity = activity;
 		lib = NutsPlayLib.getInstance(activity);
 		init();
+		initData();
 		setListener();
 	}
 	
@@ -71,6 +72,14 @@ public class RecommendView extends LinearLayout{
 		novelImage = (ImageView) view.findViewById(R.id.xs_img);
 
 		addView(view);
+	}
+	
+	public void initData(){
+		if(gameList == null) gameList = new ArrayList<LandscapeDetail>();
+		for(int i = 0 ; i < 10 ; i ++ ){
+			gameList.add(new LandscapeDetail());
+		}
+		appAdapter.addItems(gameList);
 	}
 	
 	public int getCount(){
@@ -158,14 +167,6 @@ public class RecommendView extends LinearLayout{
 		return appAdapter.isEmpty();
 	}
 	
-	/**
-	 * 更新单条应用状态
-	 * @param appId
-	 * @param status
-	 */
-	public void updateStatus(String appId, String status , boolean isUpdate) {
-		appAdapter.updateStatus(appId , status , isUpdate);
-	}
 	
 	public void updateData(String appId , String status){
 		if(!isEmpty()){}
@@ -184,8 +185,8 @@ public class RecommendView extends LinearLayout{
 		}
 	}
 	
-	private ArrayList<AppBaseDetail> gameList = null;
-	private ArrayList<AppBaseDetail> novelList = null;
+	private ArrayList<LandscapeDetail> gameList = null;
+	private ArrayList<LandscapeDetail> novelList = null;
 	
 	private class GetNovelListTask extends NutsPlayAsyncTask<String, String, Object> {
 		private String exception;

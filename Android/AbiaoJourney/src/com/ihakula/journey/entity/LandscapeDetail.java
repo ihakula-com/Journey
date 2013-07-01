@@ -2,7 +2,7 @@ package com.ihakula.journey.entity;
 
 import java.io.Serializable;
 
-public class AppBaseDetail implements Serializable{
+public class LandscapeDetail implements Serializable{
 
 	/**
 	 * 
@@ -57,11 +57,11 @@ public class AppBaseDetail implements Serializable{
 	 */
 	private String isDownloadFinish = "N";
 	
-	public AppBaseDetail() {
+	public LandscapeDetail() {
 		super();
 	}
 	
-	public AppBaseDetail(String signTop, String topText) {
+	public LandscapeDetail(String signTop, String topText) {
 		super();
 		this.signTop = signTop;
 		this.topText = topText;
@@ -185,9 +185,9 @@ public class AppBaseDetail implements Serializable{
 			return true;
 		if(o == null)
 			return false;
-		if(!(o instanceof AppBaseDetail))
+		if(!(o instanceof LandscapeDetail))
 			return false;
-		final AppBaseDetail abd = (AppBaseDetail) o;
+		final LandscapeDetail abd = (LandscapeDetail) o;
 		if(!appid.equals(abd.getAppid())){
 			return false;
 		}

@@ -6,8 +6,8 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.TimeUnit;
 
 import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.drawable.Drawable;
 import android.os.Handler;
 import android.os.Message;
 import android.os.Parcelable;
@@ -17,11 +17,16 @@ import android.support.v4.view.ViewPager.OnPageChangeListener;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RatingBar;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 import com.ihakula.journey.R;
+import com.ihakula.journey.entity.LandscapeDetail;
 import com.ihakula.journey.entity.ImageBean;
 import com.ihakula.journey.utils.LogUtil;
 import com.jerome.imageloader.core.DisplayImageOptions;
@@ -162,8 +167,7 @@ public class TopFocusView extends LinearLayout{
 		
 		ImagePagerAdapter() {
 			inflater = LayoutInflater.from(mContext);
-			this.images = new ArrayList<ImageBean>();	
-			
+			this.images = new ArrayList<ImageBean>();				
 			options = new DisplayImageOptions.Builder().cacheOnDisc().build();			
 		}
 		
@@ -176,6 +180,7 @@ public class TopFocusView extends LinearLayout{
 				pbRelative.setVisibility(View.GONE);
 			}
 			this.images.clear();
+			LogUtil.printError(TAG, "focusImgs : " + focusImgs);
 			this.images.addAll(focusImgs);
 			mCount = images.size();
 			notifyDataSetChanged();
@@ -228,26 +233,46 @@ public class TopFocusView extends LinearLayout{
    			viewPager.addView(view);
 
    			final ImageView image_default = (ImageView) view.findViewById(R.id.imageView_default);
+//			image_default.setVisibility(View.VISIBLE);
+//   			if(images.size() > 0){
+//   	   			ImageLoader.getInstance().displayImage(images.get(position%(images.size())).imgurl, image, options, new ImageLoadingListener() {
+//   	   				@Override
+//   	   				public void onLoadingStarted() {
+//   	   					image_default.setVisibility(View.VISIBLE);
+//   	   				}
+//
+//   	   				@Override
+//   	   				public void onLoadingFailed(FailReason failReason) {
+//   	   				}
+//
+//   	   				@Override
+//   	   				public void onLoadingComplete(Bitmap loadedImage) {
+//   	   					image_default.setVisibility(View.INVISIBLE);
+//   	   				}
+//
+//   	   				@Override
+//   	   				public void onLoadingCancelled() {
+//   	   				}
+//   	   			});
+//   			}
    			if(images.size() > 0){
-   	   			ImageLoader.getInstance().displayImage(images.get(position%(images.size())).imgurl, image, options, new ImageLoadingListener() {
-   	   				@Override
-   	   				public void onLoadingStarted() {
-   	   					image_default.setVisibility(View.VISIBLE);
-   	   				}
-
-   	   				@Override
-   	   				public void onLoadingFailed(FailReason failReason) {
-   	   				}
-
-   	   				@Override
-   	   				public void onLoadingComplete(Bitmap loadedImage) {
-   	   					image_default.setVisibility(View.INVISIBLE);
-   	   				}
-
-   	   				@Override
-   	   				public void onLoadingCancelled() {
-   	   				}
-   	   			});
+//   				mContext.getResources().getResourceName(R.drawable.a1);
+//   				Drawable bm = mContext.getResources().getDrawable(R.drawable.a1);
+   				
+//   				LogUtil.printError(TAG, "image : " + image + " ; bm : " + bm);
+//					image.setImageDrawable(bm);
+//					image.setImageResource(R.drawable.f_icon);
+   				if(position == 0){
+					image.setImageResource(R.drawable.a1);
+   				}else	if(position == 1){
+					image.setImageResource(R.drawable.a2);
+   				}else	if(position == 2){
+					image.setImageResource(R.drawable.a3);
+   				}else	if(position == 3){
+					image.setImageResource(R.drawable.a4);
+   				}else	if(position == 4){
+					image.setImageResource(R.drawable.a5);
+   				}
    			}
 
 			return view;

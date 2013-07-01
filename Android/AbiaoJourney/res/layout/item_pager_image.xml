@@ -7,7 +7,7 @@
         android:id="@+id/imageView_gusture"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:scaleType="centerCrop"
+        android:scaleType="fitXY"
 		 />
 
     <ImageView
@@ -16,6 +16,6 @@
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
         android:scaleType="centerCrop"        
-        android:src="@drawable/ic_launcher" />
+        android:src="@null" />
 
 </RelativeLayout>

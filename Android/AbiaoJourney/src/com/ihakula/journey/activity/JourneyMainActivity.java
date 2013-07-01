@@ -3,6 +3,7 @@ package com.ihakula.journey.activity;
 import java.security.acl.Group;
 import java.util.ArrayList;
 import java.util.List;
+
 import net.simonvt.menudrawer.MenuDrawer;
 import android.app.Activity;
 import android.content.Context;
@@ -41,13 +42,16 @@ import com.ihakula.journey.JourneyApp;
 import com.ihakula.journey.R;
 import com.ihakula.journey.adapter.NutsMainAdapter;
 import com.ihakula.journey.adapter.RecItemAdapter;
-import com.ihakula.journey.entity.AppBaseDetail;
+import com.ihakula.journey.entity.LandscapeDetail;
 import com.ihakula.journey.entity.AppUpdateInfo;
+import com.ihakula.journey.entity.FocusImgs;
+import com.ihakula.journey.entity.ImageBean;
 import com.ihakula.journey.network.NutsPlayAsyncTask;
 import com.ihakula.journey.network.NutsPlayLib;
 import com.ihakula.journey.utils.DimensionPixelUtil;
 import com.ihakula.journey.utils.LogUtil;
 import com.ihakula.journey.utils.SharedPreferencesUtil;
+import com.ihakula.journey.utils.ToastAlone;
 import com.ihakula.journey.view.AbsNutsBaseView;
 import com.ihakula.journey.view.ClaView;
 import com.ihakula.journey.view.RankView;
@@ -91,7 +95,7 @@ public class JourneyMainActivity extends FragmentActivity {
 	private LayoutInflater mInflater;
 	private int cursorWidth;// 宽度
 
-	private String[] rb_pageStr = { "1", "2"};
+	private String[] rb_pageStr = { "景点数据", "相关信息"};
 	private static int ITEM_COUNT = 2;
 
 	@Override
@@ -343,10 +347,6 @@ public class JourneyMainActivity extends FragmentActivity {
 		addRecView();
 		addRankView();
 		initRankData();
-//		addClaView();
-//		initClaData();
-//		addSubView();
-//		initSubData();
 
 		mainAdapter = new NutsMainAdapter(listViews);
 		vPager.setAdapter(mainAdapter);
@@ -365,7 +365,7 @@ public class JourneyMainActivity extends FragmentActivity {
 		listViews.add(rv);
 	}
 
-	private RecItemAdapter rankAdapter , gpAdapter;
+	private RecItemAdapter rankAdapter;
 
 	/**
 	 * 榜单页
@@ -385,46 +385,6 @@ public class JourneyMainActivity extends FragmentActivity {
 			rankView.setStatus(JourneyApp.RANK_HOT_STATUS);
 			rankAdapter = new RecItemAdapter(JourneyMainActivity.this);
 			rankView.setAdapter(rankAdapter);
-		}
-	}
-
-	/**
-	 * 分类页
-	 */
-	private void addClaView() {
-		if (cv == null) {
-			cv = new ClaView(JourneyMainActivity.this,AbsNutsBaseView.UNREFRESHABLE);
-		}
-		listViews.add(cv);
-	}
-
-	/**
-	 * 初始化分类数据
-	 */
-	private void initClaData() {
-		if (cv != null) {
-			cv.setStatus(JourneyApp.CLA_APP_STATUS);
-			gpAdapter = new RecItemAdapter(JourneyMainActivity.this);
-			cv.setAdapter(gpAdapter);
-		}
-	}
-
-	/**
-	 * 专题页
-	 */
-	private void addSubView() {
-		if (sv == null) {
-			sv = new SubView(JourneyMainActivity.this, AbsNutsBaseView.NOTITLE);
-		}
-		listViews.add(sv);
-	}
-
-	private RecItemAdapter subAdapter;
-
-	private void initSubData() {
-		if (sv != null) {
-			subAdapter = new RecItemAdapter(JourneyMainActivity.this);
-			sv.setAdapter(subAdapter);
 		}
 	}
 
@@ -662,8 +622,8 @@ public class JourneyMainActivity extends FragmentActivity {
 		}
 	};
 	
-	private ArrayList<AppBaseDetail> zrList = null;// 榜单页最热
-	private ArrayList<AppBaseDetail> zxList = null;// 榜单页最新
+	private ArrayList<LandscapeDetail> zrList = null;// 榜单页最热
+	private ArrayList<LandscapeDetail> zxList = null;// 榜单页最新
 
 	private class GetZRListTask extends
 			NutsPlayAsyncTask<String, String, Object> {
@@ -819,13 +779,13 @@ public class JourneyMainActivity extends FragmentActivity {
 			radioButton.setId(i);
 			switch (i) {
 			case 0:
-				radioButton.setBackgroundResource(R.drawable.rec_selector);
-//				radioButton.setText(rb_pageStr[0]);
+//				radioButton.setBackgroundResource(R.drawable.search_selector);
+				radioButton.setText(rb_pageStr[0]);
 				radioButton.setSelected(true);
 				break;
 			case 1:
-				radioButton.setBackgroundResource(R.drawable.list_selector);
-//				radioButton.setText(rb_pageStr[1]);
+//				radioButton.setBackgroundResource(R.drawable.point_selector);
+				radioButton.setText(rb_pageStr[1]);
 				break;	
 			}
 
@@ -845,7 +805,6 @@ public class JourneyMainActivity extends FragmentActivity {
 	private class GetFocusTask extends
 			NutsPlayAsyncTask<String, String, Object> {
 
-		private String exception;
 
 		public GetFocusTask(Activity activity) {
 			super(activity, null, true, true, false, null);
@@ -853,18 +812,31 @@ public class JourneyMainActivity extends FragmentActivity {
 
 		@Override
 		protected Object doInBackground(String... params) {
-			return null;
+			
+			FocusImgs fi = null;
+			ImageBean ib = null;
+			for(int i = 0 ; i < 5 ; i++){
+				if(fi == null) fi = new FocusImgs();
+				ib = new ImageBean();
+				ib.id = i + "";
+				if(fi.imglist == null){
+					fi.imglist = new ArrayList<ImageBean>();
+				}
+				fi.imglist.add(ib);
+			}
+			return fi;
 		}
 
 		@Override
 		protected void onPostExecute(Object result) {
 			super.onPostExecute(result);
 
-			if (exception != null) {
-//				Toast.makeText(NutsMainActivity.this, exception,Toast.LENGTH_SHORT).show();
-				return;
+			if (null != result) {
+				FocusImgs fi = (FocusImgs) result;
+				if (rv != null) {
+					rv.addFocus(fi.imglist);
+				}
 			}
-			if (null != result) {}
 
 		}
 
@@ -893,7 +865,7 @@ public class JourneyMainActivity extends FragmentActivity {
 	public boolean onKeyDown(int keyCode, KeyEvent event) {
 		if (keyCode == KeyEvent.KEYCODE_BACK) {
 			if(!IS_EXIT){
-//				ToastAlone.showToast(getApplicationContext(), "再按一次退出应用...", 1);
+				ToastAlone.showToast(getApplicationContext(), "再按一次退出应用...", 1);
 				IS_EXIT = !IS_EXIT;
 				Handler handler = new Handler();
 				handler.postDelayed(new Runnable() {
@@ -906,9 +878,6 @@ public class JourneyMainActivity extends FragmentActivity {
 			}else{
 				JourneyMainActivity.this.finish();
 			}
-
-//			NutsApplication.exit(NutsMainActivity.this);
-//			NutsMainActivity.this.finish();
 		}
 		return false;
 	}

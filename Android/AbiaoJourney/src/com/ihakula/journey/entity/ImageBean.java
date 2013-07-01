@@ -12,11 +12,11 @@ public class ImageBean implements Serializable{
 	public String category = null;
 	public String imgurl = null;
 	public String id = null;
-	
+
 	@Override
 	public String toString() {
 		return "ImageBean [category=" + category + ", imgurl=" + imgurl
 				+ ", id=" + id + "]";
 	}
-	
+
 }
