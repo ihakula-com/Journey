@@ -9,6 +9,7 @@
 #import "JStarChoiceViewController.h"
 #import "JStarChoiceCell.h"
 #import "JStarChoiceModel.h"
+#import "JStarDetailViewController.h"
 
 @interface JStarChoiceViewController ()
 
@@ -45,7 +46,7 @@
 
 #pragma mark - UITableView delegate & datasource
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
-    JStarChoiceViewController *vc = [[JStarChoiceViewController alloc] initWithNibName:@"JStarChoiceViewController" bundle:nil];
+    JStarDetailViewController *vc = [[JStarDetailViewController alloc] initWithNibName:@"JStarDetailViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
     
     [tableView deselectRowAtIndexPath:indexPath animated:YES];

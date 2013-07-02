@@ -75,6 +75,9 @@
 		B741EA9C177C7C5F0081BA49 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B741EA9B177C7C5F0081BA49 /* MobileCoreServices.framework */; };
 		B741EA9E177C7C680081BA49 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = B741EA9D177C7C680081BA49 /* libz.dylib */; };
 		B741EAA0177C7C810081BA49 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B741EA9F177C7C810081BA49 /* QuartzCore.framework */; };
+		B76766FB178308360084646E /* JStarDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B76766F9178308360084646E /* JStarDetailViewController.m */; };
+		B76766FC178308360084646E /* JStarDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B76766FA178308360084646E /* JStarDetailViewController.xib */; };
+		B76766FF17830D990084646E /* 11.txt in Resources */ = {isa = PBXBuildFile; fileRef = B76766FE17830D990084646E /* 11.txt */; };
 		B76EA13B17826C56002F6A5A /* JFeedbackViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B76EA13917826C56002F6A5A /* JFeedbackViewController.m */; };
 		B76EA13C17826C56002F6A5A /* JFeedbackViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = B76EA13A17826C56002F6A5A /* JFeedbackViewController.xib */; };
 		B76EA13E1782732C002F6A5A /* inputBg.png in Resources */ = {isa = PBXBuildFile; fileRef = B76EA13D1782732C002F6A5A /* inputBg.png */; };
@@ -299,6 +302,10 @@
 		B741EA9B177C7C5F0081BA49 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
 		B741EA9D177C7C680081BA49 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
 		B741EA9F177C7C810081BA49 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
+		B76766F8178308360084646E /* JStarDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JStarDetailViewController.h; sourceTree = "<group>"; };
+		B76766F9178308360084646E /* JStarDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JStarDetailViewController.m; sourceTree = "<group>"; };
+		B76766FA178308360084646E /* JStarDetailViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JStarDetailViewController.xib; sourceTree = "<group>"; };
+		B76766FE17830D990084646E /* 11.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = 11.txt; sourceTree = "<group>"; };
 		B76EA13817826C56002F6A5A /* JFeedbackViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JFeedbackViewController.h; sourceTree = "<group>"; };
 		B76EA13917826C56002F6A5A /* JFeedbackViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JFeedbackViewController.m; sourceTree = "<group>"; };
 		B76EA13A17826C56002F6A5A /* JFeedbackViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = JFeedbackViewController.xib; sourceTree = "<group>"; };
@@ -844,6 +851,14 @@
 			path = JSON;
 			sourceTree = "<group>";
 		};
+		B76766FD17830D990084646E /* TXT */ = {
+			isa = PBXGroup;
+			children = (
+				B76766FE17830D990084646E /* 11.txt */,
+			);
+			path = TXT;
+			sourceTree = "<group>";
+		};
 		B76EA1441782BBFF002F6A5A /* certificates */ = {
 			isa = PBXGroup;
 			children = (
@@ -902,6 +917,9 @@
 				B772E2BD17815B81006B8A1E /* JStarChoiceViewController.xib */,
 				B772E2C817817261006B8A1E /* JStarChoiceModel.h */,
 				B772E2C917817262006B8A1E /* JStarChoiceModel.m */,
+				B76766F8178308360084646E /* JStarDetailViewController.h */,
+				B76766F9178308360084646E /* JStarDetailViewController.m */,
+				B76766FA178308360084646E /* JStarDetailViewController.xib */,
 			);
 			path = Star;
 			sourceTree = "<group>";
@@ -945,6 +963,7 @@
 		B774DC37177D35E100D081AE /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				B76766FD17830D990084646E /* TXT */,
 				B774DC38177D35E100D081AE /* Images */,
 				B774DC3D177D35E100D081AE /* Plists */,
 			);
@@ -1198,6 +1217,8 @@
 				B76EA1641782D493002F6A5A /* 9@2x.png in Resources */,
 				B76EA1651782D493002F6A5A /* 10.png in Resources */,
 				B76EA1661782D493002F6A5A /* 10@2x.png in Resources */,
+				B76766FC178308360084646E /* JStarDetailViewController.xib in Resources */,
+				B76766FF17830D990084646E /* 11.txt in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1286,6 +1307,7 @@
 				B76EA13B17826C56002F6A5A /* JFeedbackViewController.m in Sources */,
 				B76EA1421782A753002F6A5A /* JABiaoViewController.m in Sources */,
 				B76EA14D1782CC00002F6A5A /* iHZoomableImageView.m in Sources */,
+				B76766FB178308360084646E /* JStarDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

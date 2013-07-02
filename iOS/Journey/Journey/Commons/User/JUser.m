@@ -18,6 +18,7 @@
     self = [super init];
     if (self) {
         self.myLocation = nil;
+        _address = nil;
     }
     return self;
 }
@@ -30,13 +31,26 @@
      completionHandler:^(NSArray *placemarks, NSError *error) {
          if (error == nil && [placemarks count] > 0){
              CLPlacemark *placemark = [placemarks objectAtIndex:0];
-             NSLog(@"Country = %@", placemark.country);
-             NSLog(@"Postal Code = %@", placemark.postalCode);
-             NSLog(@"Locality = %@", placemark.locality);
+             NSString *locality = placemark.locality;
+             NSString *administrativeArea = placemark.administrativeArea;
+             NSString *subLocality = placemark.subLocality;
+             
+             if (locality || administrativeArea || subLocality) {
+                 if (!locality) {
+                     locality = @"";
+                 }
+                 if (!administrativeArea) {
+                     administrativeArea = @"";
+                 }
+                 if (!subLocality) {
+                     subLocality = @"";
+                 }
+                 _address = [NSString stringWithFormat:@"%@%@%@", administrativeArea, locality, subLocality];
+             }
          } else if (error == nil && [placemarks count] == 0){
-             NSLog(@"No results were returned.");
+             //
          } else if (error != nil){
-             NSLog(@"An error occurred = %@", error);
+             //
          }
          
      }];

@@ -10,7 +10,7 @@
 #import <CoreLocation/CoreLocation.h>
 
 @interface JUser : JBaseModel {
-    
+    NSString *_address;
 }
 
 @property(strong, nonatomic) CLLocation *myLocation;
