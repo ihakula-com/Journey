@@ -13,5 +13,6 @@
 #import "iHAdditions.h"
 #import "iHCommons.h"
 #import "iHDebug.h"
+#import "iHLog.h"
 
 #endif

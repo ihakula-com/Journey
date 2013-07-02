@@ -9,5 +9,6 @@
 #import "JBaseViewController.h"
 
 @interface JServiceViewController : JBaseViewController
+@property (weak, nonatomic) IBOutlet UIScrollView *theScrollView;
 
 @end

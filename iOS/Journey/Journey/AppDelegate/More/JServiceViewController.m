@@ -18,7 +18,7 @@
 {
     self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
     if (self) {
-        // Custom initialization
+        self.title = NSLocalizedString(@"WarmServiceTitle", @"WarmServiceTitle");
     }
     return self;
 }
@@ -26,7 +26,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    // Do any additional setup after loading the view from its nib.
+    self.theScrollView.contentSize = CGSizeMake(320, 880);
 }
 
 - (void)didReceiveMemoryWarning
@@ -35,4 +35,8 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)viewDidUnload {
+    [self setTheScrollView:nil];
+    [super viewDidUnload];
+}
 @end

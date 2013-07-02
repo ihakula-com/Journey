@@ -11,6 +11,7 @@
 @interface iHStarModel : JBaseModel {
 }
 
-@property(strong, nonatomic) NSArray *servicesArr;
+@property (strong, nonatomic) NSArray *servicesArr;
+@property (strong, nonatomic) NSArray *sightsMottoArr;
 
 @end

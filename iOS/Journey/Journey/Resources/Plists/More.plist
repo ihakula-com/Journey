@@ -12,13 +12,13 @@
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>服务条款</string>
+			<string>注意事项</string>
 			<key>image</key>
 			<string>Terms.png</string>
 		</dict>
 		<dict>
 			<key>title</key>
-			<string>意见反馈</string>
+			<string>客户反馈</string>
 			<key>image</key>
 			<string>Feedback.png</string>
 		</dict>

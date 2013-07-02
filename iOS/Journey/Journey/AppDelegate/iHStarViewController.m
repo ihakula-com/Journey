@@ -50,6 +50,7 @@
 #pragma mark - Private Methods
 - (void)drawSlideImages {
     NSMutableArray *imageUrls = [NSMutableArray arrayWithObjects:
+                                 @"10.png",
                                  @"1.png",
                                  @"2.png",
                                  @"3.png",
@@ -68,7 +69,7 @@
     
     _pageView = [[iHPageView alloc] initWithPageNum:[imageUrls count]];
     _pageView.top = _slideImageView.bottom - 8;
-    _pageView.left = 130;
+    _pageView.left = 102;
     [self.view addSubview:_pageView];
 }
 
@@ -80,6 +81,8 @@
 
 - (void)imageDidEndDeceleratingWithIndex:(int)imageIndex{
     [_pageView setCurrentPage:imageIndex];
+    NSString *motto = [_dm.sightsMottoArr objectAtIndex:imageIndex];
+    _sightSpotLabel.text = motto;
 }
 
 - (void)viewDidUnload {

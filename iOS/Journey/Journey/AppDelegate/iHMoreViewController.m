@@ -10,10 +10,16 @@
 #import "JMoreCell.h"
 #import "JPTViewController.h"
 #import "JAboutUsViewController.h"
+#import "JFeedbackViewController.h"
+#import "JServiceViewController.h"
+#import "JABiaoViewController.h"
 
 @interface iHMoreViewController ()
+- (void)gotoABiaoDescription;
+- (void)gotoService;
 - (void)gotoPrivacyAndTerms;
-- (void)gotoAboutUsAndTerms;
+- (void)gotoAboutUs;
+- (void)gotoFeedback;
 @end
 
 @implementation iHMoreViewController
@@ -53,7 +59,23 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [self gotoAboutUsAndTerms];
+    switch (indexPath.row) {
+        case 0:
+            [self gotoABiaoDescription];
+            break;
+        case 1:
+            [self gotoService];
+            break;
+        case 2:
+            [self gotoFeedback];
+            break;
+        case 3:
+            [self gotoAboutUs];
+            break;
+            
+        default:
+            break;
+    }    
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -81,13 +103,28 @@
 }
 
 #pragma mark - Private Methods
+- (void)gotoABiaoDescription {
+    JABiaoViewController *vc = [[JABiaoViewController alloc] initWithNibName:@"JABiaoViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)gotoPrivacyAndTerms {
     JPTViewController *vc = [[JPTViewController alloc] initWithNibName:@"JPTViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 
-- (void)gotoAboutUsAndTerms {
+- (void)gotoAboutUs {
     JAboutUsViewController *vc = [[JAboutUsViewController alloc] initWithNibName:@"JAboutUsViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)gotoFeedback {
+    JFeedbackViewController *vc = [[JFeedbackViewController alloc] initWithNibName:@"JFeedbackViewController" bundle:nil];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
+- (void)gotoService {
+    JServiceViewController *vc = [[JServiceViewController alloc] initWithNibName:@"JServiceViewController" bundle:nil];
     [self.navigationController pushViewController:vc animated:YES];
 }
 @end
