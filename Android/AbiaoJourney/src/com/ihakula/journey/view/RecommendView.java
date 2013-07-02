@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.Toast;
 
+import com.huewu.pla.lib.MultiColumnListView;
 import com.ihakula.journey.R;
 import com.ihakula.journey.adapter.RecItemAdapter;
 import com.ihakula.journey.entity.LandscapeDetail;
@@ -44,6 +45,8 @@ public class RecommendView extends LinearLayout{
 	
 	private int novelPageCount = 1 , gamePageCount = 1;
 	public boolean isContainCacheData = false;
+	
+	MultiColumnListView  listView;
 	
 	public RecommendView(Activity activity) {
 		super(activity);

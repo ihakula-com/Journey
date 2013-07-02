@@ -4,12 +4,13 @@
     android:layout_height="match_parent"
     android:orientation="vertical" >
 	
-    <com.ihakula.journey.view.pullrefreshview.PullToRefreshListView
+	<com.ihakula.journey.view.pullrefreshview.PullToRefreshListView
         xmlns:ptr="http://schemas.android.com/apk/res/com.ihakula.journey"
         android:id="@+id/rec_listView"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         android:paddingBottom="60dip"
         ptr:ptrMode="pullUpFromBottom" />
+        
     
 </LinearLayout>

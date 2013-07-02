@@ -5,7 +5,7 @@
     android:background="#F2F2F2"
     android:button="@null"
     android:checked="false"
-    android:gravity="center"
+    android:gravity="center"    
     android:drawableTop="@drawable/gou_point"
     android:text=""
     android:textColor="@drawable/rb_homepagemain_blue_bg"

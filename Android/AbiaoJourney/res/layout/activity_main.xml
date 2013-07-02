@@ -9,7 +9,7 @@
         android:layout_height="@dimen/nav_default_height"     
         android:background="@drawable/top_bg"   
         >        
-        <include layout="@layout/layout_merge_top"/>
+        <include layout="@layout/layout_merge_title"/>
     </RelativeLayout>
     
      <RelativeLayout

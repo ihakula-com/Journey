@@ -256,12 +256,6 @@ public class TopFocusView extends LinearLayout{
 //   	   			});
 //   			}
    			if(images.size() > 0){
-//   				mContext.getResources().getResourceName(R.drawable.a1);
-//   				Drawable bm = mContext.getResources().getDrawable(R.drawable.a1);
-   				
-//   				LogUtil.printError(TAG, "image : " + image + " ; bm : " + bm);
-//					image.setImageDrawable(bm);
-//					image.setImageResource(R.drawable.f_icon);
    				if(position == 0){
 					image.setImageResource(R.drawable.a1);
    				}else	if(position == 1){
@@ -272,6 +266,14 @@ public class TopFocusView extends LinearLayout{
 					image.setImageResource(R.drawable.a4);
    				}else	if(position == 4){
 					image.setImageResource(R.drawable.a5);
+   				}else	if(position == 5){
+					image.setImageResource(R.drawable.a6);
+   				}else	if(position == 6){
+					image.setImageResource(R.drawable.a7);
+   				}else	if(position == 7){
+					image.setImageResource(R.drawable.a8);
+   				}else	if(position == 8){
+					image.setImageResource(R.drawable.a9);
    				}
    			}
 

@@ -81,10 +81,8 @@ public class JourneyMainActivity extends FragmentActivity {
 
 	private RecommendView rv;
 	private RankView rankView;
-	private ClaView cv;
-	private SubView sv;
 
-	private ImageView searchImg, appImg;
+//	private ImageView searchImg, appImg;
 	private FrameLayout countFrame;
 	private TextView countText;
 	// DATA
@@ -326,8 +324,6 @@ public class JourneyMainActivity extends FragmentActivity {
 		getWindowManager().getDefaultDisplay().getMetrics(dm);
 		cursorWidth = dm.widthPixels / ITEM_COUNT;
 
-		searchImg = (ImageView) findViewById(R.id.search_img);
-		appImg = (ImageView) findViewById(R.id.app_img);
 		countFrame = (FrameLayout) findViewById(R.id.count_frame);
 		countText = (TextView) findViewById(R.id.count_text);
 		mhsv = (SyncHorizontalScrollView) findViewById(R.id.mhsv);
@@ -393,21 +389,6 @@ public class JourneyMainActivity extends FragmentActivity {
 		vPager.setOnPageChangeListener(new MyOnPageChangeListener());
 		vPager.setOnTouchListener(new FocusTouchListener());
 
-		searchImg.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
-		appImg.setOnClickListener(new OnClickListener() {
-
-			@Override
-			public void onClick(View v) {
-
-			}
-		});
-
 		if (rankView != null) {
 			rankView.setOnItemClickListener(new OnItemClickListener() {
 
@@ -458,56 +439,6 @@ public class JourneyMainActivity extends FragmentActivity {
 					} else if (rankView.PITCH.equals(rankView.CHANGE_FLAG_ZX)) {
 						new GetZXListTask(JourneyMainActivity.this).execute();
 					}
-				}
-			});
-		}
-
-		if (cv != null) {
-			cv.setYxListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					cv.setStatus(JourneyApp.CLA_APP_STATUS);
-					cv.PITCH = cv.CHANGE_FLAG_YX;
-					if (yxList != null) {
-//						gpAdapter.addItems(yxList);
-					}
-				}
-			});
-
-			cv.setXsListener(new OnClickListener() {
-
-				@Override
-				public void onClick(View v) {
-					cv.setStatus(JourneyApp.CLA_GAME_STATUS);
-					cv.PITCH = cv.CHANGE_FLAG_XS;
-					if (cv != null && xsList == null || xsList.size() == 0) {
-						new GetClaListTask(JourneyMainActivity.this).execute(cv.PITCH);
-					}
-					if (xsList != null) {
-//						gpAdapter.addItems(xsList);
-					}
-				}
-			});
-
-			cv.setOnItemClickListener(new OnItemClickListener() {
-
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-					
-				}
-			});
-
-		}
-
-		if (sv != null) {
-			sv.setOnItemClickListener(new OnItemClickListener() {
-
-				@Override
-				public void onItemClick(AdapterView<?> parent, View view,
-						int position, long id) {
-					
 				}
 			});
 		}
@@ -815,7 +746,7 @@ public class JourneyMainActivity extends FragmentActivity {
 			
 			FocusImgs fi = null;
 			ImageBean ib = null;
-			for(int i = 0 ; i < 5 ; i++){
+			for(int i = 0 ; i < 9 ; i++){
 				if(fi == null) fi = new FocusImgs();
 				ib = new ImageBean();
 				ib.id = i + "";
