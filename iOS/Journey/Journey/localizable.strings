@@ -6,6 +6,27 @@
   Copyright (c) 2013 iHakula. All rights reserved.
 */
 
+/* Error */
+"iHServiceErrorSystemBusy" = "系统忙，请稍后再试";
+"iHServiceErrorFeedbackEmpty" = "反馈内容不能为空";
+"iHServiceErrorCallTimesEmpty" = "电话次数不能为空";
+
+"submitSuccess" = "提交成功！";
+"RequestError" = "请求失败！";
+"RequestCanceled" = "请求取消!";
+"RequestSending" = "正在发送请求...";
+
+"ASIConnectionFailureErrorType" = "无法连接到网络";
+"ASIRequestTimedOutErrorType" = "访问超时";
+"ASIAuthenticationErrorType" = "服务器身份验证失败";
+"ASIRequestCancelledErrorType" = "服务器请求已取消";
+"ASIUnableToCreateRequestErrorType" = "无法创建服务器请求";
+"ASIInternalErrorWhileBuildingRequestType" = "服务器请求创建异常";
+"ASIInternalErrorWhileApplyingCredentialsType" = "服务器请求异常";
+"ASIFileManagementError" = "服务器请求异常";
+"ASIUnhandledExceptionError" = "未知请求异常异常";
+
+
 /* System */
 
 "callme" = "呼叫阿标";

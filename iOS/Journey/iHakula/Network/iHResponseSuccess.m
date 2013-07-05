@@ -28,7 +28,7 @@
     self = [super init];
     if (self) {
         self.serviceName = [dic objectForKey:@"serviceName"];
-        self.status = [dic objectForKey:@"error"];
+        self.status = [dic objectForKey:@"status"];
         self.errorInfo = [dic objectForKey:@"message"];
         self.userInfoDic = [NSDictionary dictionaryWithDictionary:dic];
     }

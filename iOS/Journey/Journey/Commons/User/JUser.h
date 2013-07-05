@@ -11,10 +11,15 @@
 
 @interface JUser : JBaseModel {
     NSString *_address;
+    NSString *_platform;
+    NSString *_os;
+    NSString *_device;
 }
 
 @property(strong, nonatomic) CLLocation *myLocation;
 
 - (NSString *)getAddress;
+- (void)doCallFeedbackService:(NSString *)feedback;
+- (void)doCallCallMeService;
 
 @end

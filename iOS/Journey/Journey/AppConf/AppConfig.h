@@ -12,6 +12,8 @@
 #import "Services.h"
 #import "Fonts.h"
 
-/////////////////////////// Cache Keys /////////////////////////////////////
+/////////////////////////// Global Keys /////////////////////////////////////
+#define IH_ABIAO_PHONE_NUMBER   @"iHABiaoPhoneNumber"
+#define IH_AHUI_PHONE_NUMBER    @"iHAHuiPhoneNumber"
 
 #endif

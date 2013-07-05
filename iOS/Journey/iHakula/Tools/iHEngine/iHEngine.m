@@ -70,9 +70,9 @@ void uncaughtExceptionHandler(NSException *e){
     
     //Setup network monitor
     //    NSString *hostName = [[confDic objectForKey:@"serviceInfo"] objectForKey:@"hostName"];
-//    if (![engine setupNetworkMonitor:HOST_NAME]) {
-//        engine.howEngineDoing = iH_FAILURE;
-//    }
+    if (![engine setupNetworkMonitor:HOST_NAME]) {
+        engine.howEngineDoing = iH_FAILURE;
+    }
     
     //Setup Request environment
     //    NSString *rootUrl = [[confDic objectForKey:@"serviceInfo"] objectForKey:@"rootUrl"];
@@ -140,5 +140,6 @@ void uncaughtExceptionHandler(NSException *e){
     
     return YES;
 }
+
 
 @end

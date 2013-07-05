@@ -406,41 +406,38 @@
     if (request.error.domain == NetworkRequestErrorDomain) {
 		switch ([request.error code]) {
 			case ASIConnectionFailureErrorType:
-                errorMsg = @"Det gick inte att kontakta servern. Var god och försök igen om en liten stund";
-//				errorMsg = @"无法连接到网络";
+                errorMsg = LOCALIZED_STRING(@"ASIConnectionFailureErrorType");
 				break;
 			case ASIRequestTimedOutErrorType:
-                errorMsg = @"Det gick inte att kontakta servern. Var god och försök igen om en liten stund";
-//				errorMsg = @"访问超时";
+                errorMsg = LOCALIZED_STRING(@"ASIRequestTimedOutErrorType");
 				break;
 			case ASIAuthenticationErrorType:
-                errorMsg = @"Fel användarnamn eller lösenord";
-//				errorMsg = @"服务器身份验证失败";
+                errorMsg = LOCALIZED_STRING(@"ASIAuthenticationErrorType");
 				break;
 			case ASIRequestCancelledErrorType:
-				errorMsg = @"服务器请求已取消";
+				errorMsg = LOCALIZED_STRING(@"ASIRequestCancelledErrorType");
 				break;
 			case ASIUnableToCreateRequestErrorType:
-				errorMsg = @"无法创建服务器请求";
+				errorMsg = LOCALIZED_STRING(@"ASIUnableToCreateRequestErrorType");
 				break;
 			case ASIInternalErrorWhileBuildingRequestType:
-				errorMsg = @"服务器请求创建异常";
+				errorMsg = LOCALIZED_STRING(@"ASIInternalErrorWhileBuildingRequestType");
 				break;
 			case ASIInternalErrorWhileApplyingCredentialsType:
-				errorMsg = @"服务器请求异常";
+				errorMsg = LOCALIZED_STRING(@"ASIInternalErrorWhileApplyingCredentialsType");
 				break;
 			case ASIFileManagementError:
-				errorMsg = @"服务器请求异常";
+				errorMsg = LOCALIZED_STRING(@"ASIFileManagementError");
 				break;
 			case ASIUnhandledExceptionError:
-				errorMsg = @"未知请求异常异常";
+				errorMsg = LOCALIZED_STRING(@"ASIUnhandledExceptionError");
 				break;
 			default:
-				errorMsg = @"服务器故障或网络链接失败！";
+				errorMsg = LOCALIZED_STRING(@"iHServiceErrorSystemBusy");
 				break;
 		}
         if ([request.error code] != ASIAuthenticationErrorType) {
-            errorMsg = @"Det gick inte att kontakta servern. Var god och försök igen om en liten stund";
+            errorMsg = LOCALIZED_STRING(@"iHServiceErrorSystemBusy");
         }
 	}
     
@@ -545,7 +542,8 @@
 
 - (NSMutableDictionary *)getJsonResponse:(ASIHTTPRequest *)request
 {
-    NSString *responseString = [NSString stringWithFormat:@"{\"data\":%@}",[request responseString]];
+//    NSString *responseString = [NSString stringWithFormat:@"{\"data\":%@}",[request responseString]];
+    NSString *responseString = [request responseString];
     iHDINFO(@"\n**************\niHRequest, response string:\n%@\n**************\n", responseString);
     [theLog pushLog:[[request requestHeaders] objectForKey:@"serviceName"] message:responseString type:iH_LOGS_MESSAGE file:nil function:nil line:0];
     

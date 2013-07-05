@@ -77,7 +77,11 @@
 }
 
 - (void)sureBtnClicked {
-    
+    if ([_lengthLabel.text isEqualToString:@"0/500"]) {
+        [self showAlertMessage:LOCALIZED_STRING(@"iHServiceErrorFeedbackEmpty")];
+        return;
+    }
+    [appDelegate.user doCallFeedbackService:_theTextView.text];
 }
 
 - (IBAction)onBgClicked:(id)sender {

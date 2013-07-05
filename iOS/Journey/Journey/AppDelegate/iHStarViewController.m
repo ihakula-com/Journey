@@ -34,11 +34,6 @@
     [super viewDidLoad];
     [self setupRightCallItem];
 	[self drawSlideImages];
-    [self performSelector:@selector(test) withObject:nil afterDelay:5.0];
-}
-
-- (void)test {
-    [appDelegate.user getAddress];
 }
 
 - (void)didReceiveMemoryWarning

@@ -265,7 +265,7 @@
 	
 	[self appendPostString:[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary]];
     
-//    NSLog(@"\n**************\nbuildMultipartFormDataPostBody:iHRequest, post request data:\n%@\n**************\n", [self postData]);
+    iHDINFO(@"\n**************\nbuildMultipartFormDataPostBody:iHRequest, post request data:\n%@\n**************\n", [self postData]);
 	
 #if DEBUG_FORM_DATA_REQUEST
 	[self addToDebugBody:@"==== End of multipart/form-data body ====\r\n"];
@@ -300,7 +300,7 @@
 		i++;
 	}
     
-//    NSLog(@"\n**************\niHRequest, post request data:\n%@\n**************\n", [self postData]);
+    iHDINFO(@"\n**************\niHRequest, post request data:\n%@\n**************\n", [self postData]);
     
 #if DEBUG_FORM_DATA_REQUEST
 	[self addToDebugBody:@"\r\n==== End of application/x-www-form-urlencoded body ====\r\n"]; 

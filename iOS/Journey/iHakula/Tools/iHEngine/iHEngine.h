@@ -10,8 +10,7 @@
 
 #define iH_SUCCESS YES
 #define iH_FAILURE NO
-#define HOST_NAME           @"www.ihakula.com"
-#define SERVICE_ROOT_URL    @"http://www.ihakula.com"
+
 @interface iHEngine : NSObject {
     @public
         BOOL howEngineDoing;

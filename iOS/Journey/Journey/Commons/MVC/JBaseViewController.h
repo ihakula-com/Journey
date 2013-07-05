@@ -14,5 +14,6 @@
 }
 
 - (void)setupRightCallItem;
+- (void)showAlertMessage:(NSString *)msg;
 
 @end

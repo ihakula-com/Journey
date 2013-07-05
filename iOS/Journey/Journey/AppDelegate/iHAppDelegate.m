@@ -26,11 +26,14 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleBlackOpaque];
+    
     // Engine Start
     if (![iHEngine start]) {
         return NO;
     }
     self.user = [[JUser alloc] init];
+    self.customerMessageStatusBar = [[iHStatusBarWindow alloc] initWithColor:iHStatusBarColorBlack];
     
     UIViewController *viewController1 = [[iHStarViewController alloc] initWithNibName:@"iHStarViewController" bundle:nil];
     UIViewController *viewController2 = [[iHMoreViewController alloc] initWithNibName:@"iHMoreViewController" bundle:nil];
@@ -105,6 +108,7 @@
 #pragma mark - CLLocationManagerDelegate
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation *)oldLocation {
     self.user.myLocation = newLocation;
+    [self.user getAddress];
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error {

@@ -20,6 +20,7 @@
 #pragma mark - common functions
 
 #define RELEASE_SAFELY(__POINTER) { if(__POINTER) { [__POINTER release]; __POINTER = nil; }}
+#define LOCALIZED_STRING(__POINTER) NSLocalizedString(__POINTER, _POINTER)
 
 
 ////////////////////////////////////////////////////////////////////////////////

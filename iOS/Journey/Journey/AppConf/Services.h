@@ -9,17 +9,12 @@
 #ifndef Journey_Services_h
 #define Journey_Services_h
 
-//#define SERVICE_ROOT_URL            @"https://korpenmobileservertest.cloudapp.net/api/"
-//#define HOST_NAME                   @"korpenmobileservertest.cloudapp.net"
+#define HOST_NAME           @"112.124.41.173"
+#define SERVICE_ROOT_URL    @"http://112.124.41.173/Journey/api/index.php/journey/"
 
-#define SERVICE_ROOT_URL            @"https://mobileserver.korpen.se/api/"
-#define HOST_NAME                   @"mobileserver.korpen.se"
+/////////////////////////// Services ///////////////////////////////////////////
 
-// http://korpenmobileserver.cloudapp.net/
-
-// Example Service Name Rule
-// #define SERVICE_about          @"/ios/sync/interface1"
-
-#define SERVICE_ABOUT                           @"getaboutkorpen"
+#define SERVICE_FEEDBACK                           @"feedback"
+#define SERVICE_CALL_ME                            @"callme"
 
 #endif

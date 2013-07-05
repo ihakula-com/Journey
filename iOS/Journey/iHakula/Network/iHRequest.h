@@ -12,19 +12,13 @@
 #import "ASIHTTPRequest.h"
 
 #pragma mark - Service Configurations
-#define SERVICE_OPERATION_SUCC      0
-#define SERVICE_OPERATION_FAIL      -1
+#define SERVICE_OPERATION_SUCC      1
+#define SERVICE_OPERATION_FAIL      0
 
 typedef enum {
-    
-    iHServiceErrorBadRequest = 400,
-    iHServiceErrorUnauthorized = 401,
-    iHServiceErrorForbidden = 403,
-    iHServiceErrorNotFound = 404,
-    iHServiceErrorNotAcceptable = 406,
-    iHServiceErrorInternalServerError = 500,
-    iHServiceErrorServerUnavailable = 503,
-    
+    iHServiceErrorSystemBusy = 2001,
+    iHServiceErrorFeedbackEmpty = 2010,
+    iHServiceErrorCallTimesEmpty = 2011,
 } iHServiceErrorCode;
 
 typedef enum{

@@ -10,4 +10,10 @@
 
 @interface JBaseModel : iHBaseModel
 
+- (BOOL)doCallService:(NSString *)serviceName withParameters:(NSDictionary *)paraDic andServiceUrl:(NSString *)serviceUrl forDelegate:(id)theDelegate;
+- (BOOL)doCallHttpService:(NSString *)serviceName withParameters:(NSDictionary *)paraDic andServiceUrl:(NSString *)serviceUrl forDelegate:(id)theDelegate;
+
+- (void)showMessage:(NSString *)msg;
+- (void)hideMessage;
+
 @end

@@ -42,6 +42,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+#pragma mark - Public Methods
+- (void)showAlertMessage:(NSString *)msg {
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WarmServiceTitle", @"WarmServiceTitle") message:msg delegate:nil cancelButtonTitle:NSLocalizedString(@"ok", @"ok") otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 #pragma mark - Private Methods
 - (void)setupRightCallItem {
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:NSLocalizedString(@"callme", @"CallMe") style:UIBarButtonItemStylePlain target:self action:@selector(callBtnClicked)];
@@ -78,26 +84,28 @@
         
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:NSLocalizedString(@"WarmServiceTitle", @"WarmServiceTitle") message:content selectedBlock:^(NSInteger index){
             if (1 == index) {
+                
+                if (0 == buttonIndex) {
+                    int times = [[USER_DEFAULT valueForKey:IH_ABIAO_PHONE_NUMBER] intValue];
+                    times = times == -1 ? 0 : times;
+                    times++;
+                    [USER_DEFAULT setValue:[NSString stringWithFormat:@"%d", times] forKey:IH_ABIAO_PHONE_NUMBER];
+                } else {
+                    int times = [[USER_DEFAULT valueForKey:IH_AHUI_PHONE_NUMBER] intValue];
+                    times = times == -1 ? 0 : times;
+                    times++;
+                    [USER_DEFAULT setValue:[NSString stringWithFormat:@"%d", times] forKey:IH_AHUI_PHONE_NUMBER];
+                }
+                [USER_DEFAULT synchronize];
+                
+                [appDelegate.user doCallCallMeService];
+                
                 NSString *num = [[NSString alloc] initWithFormat:@"tel://%@", phoneNum];
                 [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
             }
         } cancelButtonTitle:NSLocalizedString(@"cancel", @"Cancel") otherButtonTitles:NSLocalizedString(@"ok", @"OK")];
         [alert show];
     }
-    
-    
-    //    NSString *userNum = [[NSUserDefaults standardUserDefaults] stringForKey:@"SBFormattedPhoneNumber"];
-    //    iHDINFO(@"-- %@", userNum);
-    
-    //    NSString *num = [[NSString alloc] initWithFormat:@"telprompt://%@", @"15611762054"];
-    //    NSString *num = [[NSString alloc] initWithFormat:@"tel://%@", @"15611762054"];
-    //    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:num]];
-    
-    //    NSString *urlString = @"tel://15611762054";
-    //    NSURL *url = [NSURL URLWithString:urlString];
-    //    NSURLRequest *request = [NSURLRequest requestWithURL:url];
-    //    UIWebView *webView = [[UIWebView alloc] initWithFrame:CGRectZero];
-    //    [webView loadRequest:request];
 }
 
 @end
